@@ -1,0 +1,115 @@
+Sample 1000 rows from spotify_population, assigning to spotify_sample.
+
+# Sample 1000 rows from spotify_population
+spotify_sample = spotify_population.sample(n=1000)
+
+# Print the sample
+print(spotify_sample)
+
+
+Create a pandas Series, loudness_pop, by subsetting the loudness column from spotify_population.
+Sample loudness_pop to get 100 random values, assigning to loudness_samp.
+
+# Subset the loudness column of spotify_population
+loudness_pop = spotify_population['loudness']
+
+# Sample 100 values of loudness_pop
+loudness_samp = loudness_pop.sample(n=100)
+
+# Print the sample
+print(loudness_samp)
+
+
+Calculate the mean of loudness_pop using numpy.
+Calculate the mean of loudness_samp using numpy.
+
+# Create a pandas Series from the loudness column of spotify_population
+loudness_pop = spotify_population['loudness']
+
+# Sample 100 values of loudness_pop
+loudness_samp = loudness_pop.sample(n=100)
+
+# Calculate the mean of loudness_pop
+mean_loudness_pop = np.mean(loudness_pop)
+
+# Calculate the mean of loudness_samp
+mean_loudness_samp = np.mean(loudness_samp)
+
+# Print the means
+print(mean_loudness_pop)
+print(mean_loudness_samp)
+
+
+Plot a histogram of the acousticness from spotify_population with bins of width 0.01 from 0 to 1 using pandas .hist().
+
+# Visualize the distribution of acousticness with a histogram
+spotify_population['acousticness'].hist(bins=np.arange(0, 1.01, 0.01))
+plt.show()
+
+
+Update the histogram code to use the spotify_mysterious_sample dataset.
+
+# Update the histogram to use spotify_mysterious_sample
+spotify_mysterious_sample['acousticness'].hist(bins=np.arange(0, 1.01, 0.01))
+plt.show()
+
+
+answer
+No. The acousticness samples are consistently higher than those in the general population.
+
+
+Plot a histogram of duration_minutes from spotify_population with bins of width 0.5 from 0 to 15 using pandas .hist().
+
+# Visualize the distribution of duration_minutes as a histogram
+spotify_population['duration_minutes'].hist(bins=np.arange(0, 15.5, 0.5))
+plt.show()
+
+
+Generate 5000 numbers from a uniform distribution, setting the parameters low to -3 and high to 3.
+
+# Generate random numbers from a Uniform(-3, 3)
+uniforms = np.random.uniform(low=-3, high=3, size=5000)
+
+# Print uniforms
+print(uniforms)
+
+
+Generate 5000 numbers from a normal distribution, setting the parameters loc to 5 and scale to 2.
+
+# Generate random numbers from a Uniform(-3, 3)
+uniforms = np.random.uniform(low=-3, high=3, size=5000)
+
+# Generate random numbers from a Normal(5, 2)
+normals = np.random.normal(loc=5, scale=2, size=5000)
+
+# Print normals
+print(normals)
+
+
+Which statement about x and y is true?
+
+import numpy as np
+np.random.seed(123)
+x = np.random.normal(size=5)
+y = np.random.normal(size=5)
+
+The values of x are different from those of y.
+
+Which statement about x and y is true?
+
+import numpy as np
+np.random.seed(123)
+x = np.random.normal(size=5)
+np.random.seed(123)
+y = np.random.normal(size=5)
+
+x and y have identical values.
+
+
+import numpy as np
+np.random.seed(123)
+x = np.random.normal(size=5)
+np.random.seed(456)
+y = np.random.normal(size=5)
+
+The values of x are different from those of y.
