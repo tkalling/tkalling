@@ -1,0 +1,213 @@
+Question 1 
+
+Consider the Pandas DataFrame df below.
+
+     gh owner      repo  stars
+0  pandas-dev    pandas  17800
+1   tidyverse     dplyr   2800
+2   tidyverse   ggplot2   3500
+3      has2k1  plotnine   1450
+Complete the code to return the output
+df['language'] = ['python', 'R', 'R', 'python']
+print(df)
+
+
+Question 2
+
+From the wine DataFrame, select the columns country and price.
+Complete the code to return the output
+subset_wine = wine[['country','price']]
+
+print(subset_wine.head())
+
+
+Question 3
+
+You work for a second hand car sales company, and they want to know the relationship between the age and the value so that they can estimate the best price 
+to sell their cars at. Create a scatter plot to show the relationship, identifying the emissions level by changing the color of each point. 
+The valuation data is previewed below.
+
+    age emissions   mpg  value
+0    15       low  23.1   3047
+1     8       low  10.4  15428
+2     4      high  15.4  24973
+3    10      high  31.0   4638
+4     1       low  30.2  19303
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.scatterplot(x = "age", y = "value", hue = "emissions", data = valuation)
+
+
+Question 4
+
+Calculate the mean and median of the array x.
+Complete the code to return the output
+x = np.array([2.2, 0.9, 4.4, 6.7, 2.8, 3.2, 1.1, 3.5])
+mean = np.mean(x)
+median = np.median(x)
+print('Mean:', mean, 'Median:', median)
+
+
+Question 5
+
+Consider the Pandas DataFrame df below.
+
+     gh owner language      repo  stars
+0  pandas-dev   python    pandas  17800
+1   tidyverse        R     dplyr   2800
+2   tidyverse        R   ggplot2   3500
+3      has2k1   python  plotnine   1450
+Complete the code to return the output
+print(df.loc[:,["gh owner"]])
+
+
+Question 6
+
+Subset the Pandas DataFrame df to return all rows with a weight greater than 175.
+
+     species   name  weight
+0       lion  Sally     121
+1      tiger  Henry     228
+2       lion   Tony     177
+3      tiger   Lucy     165
+Complete the code to return the output
+print(df[df['weight']>175])
+
+
+Question 7
+
+Create a swarm plot of value as a function of measurement. Use the color to indicate the species. The data is contained in the iris DataFrame.
+
+--iris
+      species    measurement   value
+0     setosa     sepal_length  5.1
+1     setosa     sepal_length  4.9
+...
+598   virginica  petal_width   4.6
+599   virginica  petal_width   5.0
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+ax = sns.swarmplot(x="measurement", 
+                   y="value", 
+                   hue="species", 
+                   data=iris)
+
+plt.show()
+
+
+Question 8
+
+Consider the Pandas DataFrame df below. Filter it appropriately so that it outputs the shown results.
+
+     gh owner language      repo  stars
+0  pandas-dev   python    pandas  17800
+1   tidyverse        R     dplyr   2800
+2   tidyverse        R   ggplot2   3500
+3      has2k1   python  plotnine   1450
+Complete the code to return the output
+print(df[df["stars"]==1450])
+
+
+Question 9
+
+The chess DataFrame contains information about the top female chess players around the world. A preview of the DataFrame is shown. 
+Set the index of the DataFrame to be the column containing the Fide id of the players.
+
+    Fide id Name.               Federation Year_of_birth     Title
+0   700070  Polgar, Judit              HUN          1976        GM
+1   8602980 Hou, Yifan                 CHN          1994        GM
+2   5008123 Koneru, Humpy              IND          1987        GM
+3   4147103 Goryachkina, Aleksandra    RUS          1998        GM
+4   700088  Polgar, Susan              HUN          1969        GM
+Complete the code to return the output
+chess = chess.set_index('Fide id')
+print(chess.head())
+
+
+Question 10
+
+Add the height column to the df DataFrame shown below.
+
+     species    name  weight 
+0       lion   Sally     121
+1      tiger   Henry     228
+2       lion    Tony     177
+3      tiger    Lucy     165
+Complete the code to return the output
+height = [70, 100, 80, 85]
+
+df['height'] = df[height] 
+df['height'] = height 
+
+print(df.head())
+
+
+Question 11
+
+You have been given the food data to analyze, it's already loaded for you and stored in a DataFrame. 
+Before you get started you want to quickly see some summary statistics for each of the three columns in the data. Calculate and print these statistics.
+Complete the code to return the output
+print(food.describe())
+Expected Output
+        energy  protein  carbohydrate
+count    6.000    6.000         6.000
+mean   187.833    6.813        24.662
+std     86.071    3.621        19.586
+min    106.000    3.180         8.000
+25%    127.500    4.468        10.857
+50%    184.000    5.355        17.550
+75%    197.000    9.633        32.642
+max    343.000   11.760        58.570
+
+
+Question 12
+
+As part of a salary review, HR has requested that you gather all information for employees who earn a salary_usd of 5000.
+
+Print the corresponding records from the employee pandas DataFrame shown below.
+
+     first_name    gender    salary_usd  
+0         Linda    female          3000  
+1         Steve      male          5000 
+2         Henry      male         12000
+3          Sara    female          5000  
+Complete the code to return the output
+print(employee[employee['salary_usd']==5000])
+
+
+Question 13
+
+The chess DataFrame contains information about the top female chess players around the world. Determine what fields exist in the dataset by printing the names of the columns.
+Complete the code to return the output
+print(chess.columns)
+Index(['Fide id', 'Name', 'Federation', 'Gender', 'Year_of_birth', 'Title', 'Standard_Rating', 'Rapid_rating', 'Blitz_rating', 'Inactive_flag'], dtype='object')
+
+
+Question 14
+
+The food DataFrame contains nutritional information about six menu items from a restaurant. Print the row index of the data.
+Complete the code to return the output
+print(food.index)
+
+Index(['waffles', 'tacos', 'lasagne', 'croissant', 'chicken salad', 'thai curry'], dtype='object', name='item')
+
+
+Question 15
+
+Create a scatterplot of mpg as a function of weight.
+
+Use size to indicate the relative horsepower of vehicles.
+The data is contained in the cars DataFrame.
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.scatterplot(x='weight', y='mpg', size='horsepower', data= cars)
+
+plt.show()
+
+
