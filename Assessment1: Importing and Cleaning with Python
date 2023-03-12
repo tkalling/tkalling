@@ -1,0 +1,201 @@
+Question 1 
+
+Delete the white spaces in the column name in Pandas DataFrame student shown below.
+
+--student
+
+id    name   grade
+1       Amy     90
+2       Bob    100
+3    Jack       80
+4   Martin      95
+5    Helen     100
+Complete the code to return the output
+import pandas as pd
+
+student['name'] = 
+student['name'] = student['name'].str.strip()
+
+print(student.head())
+
+
+Question 2
+
+Consider the Pandas DataFrame score below. Drop the rows where any of the row values are NaN.
+
+      id  math  physics
+0  101.0  90.0     88.0
+1  102.0   NaN     89.0
+2    NaN   NaN      NaN
+Complete the code to return the output
+
+print(score.dropna())
+
+
+Question 3
+
+An email address is stored in a variable named email. Change the case of email to lower case.
+Complete the code to return the output
+print(email.lower())
+
+
+Question 4
+
+The wine data contains a number of missing values across multiple columns. Remove all rows that contain a missing value, regardless of the column.
+
+                     type    country  price  rating
+style                                              
+alvarinho           white   portugal  18.99     4.2
+blanc de blanc  sparkling     france    NaN     3.8
+cabernet              red  argentina  14.90     4.0
+gavi                white      italy  13.56     NaN
+Select the code to return the output
+wine_no_missing= wine.dropna()
+
+print(wine_no_missing)
+
+
+Question 5
+
+from bs4 import BeautifulSoup
+
+s = BeautifulSoup(html_doc)
+ps = s.prettify()
+fs = print(ps)
+fs
+
+
+Question 6
+
+import json
+import pandas as pd
+
+x = pd.read_json('data.json')
+print(x)
+
+
+Question 7
+
+What type of data does the following represent?
+{
+    "color": "red",
+    "value": "#f00"
+}
+
+JSON
+
+
+Question 8
+
+Drop the missing values from the Pandas DataFrame game shown below.
+
+game 
+
+id    name         team
+1     Amy        Bosses
+2     Bob           NaN
+3     Chuck         NaN
+4     Richard Champions
+5     Ethel         NaN
+6     Fred    Champions
+7     Gilly         NaN
+8     Hank    Champions
+Complete the code to return the output
+print(game.dropna())
+
+
+Question 9 
+
+Consider the Pandas DataFrame score below. Drop the rows where all values are NaN.
+
+      id  math  physics
+0  101.0  90.0     88.0
+1  102.0   NaN     89.0
+2    NaN   NaN      NaN
+Complete the code to return the output
+print(score.dropna(how = 'all'))
+
+
+Question 10
+
+Using the appropriate pandas function, convert the list l to a datetime object
+Complete the code to return the output
+import pandas as pd
+
+l = ['2012-01-01 091234','2012-01-01 091234']
+print(pd.to_datetime(l))
+
+
+Question 11
+
+Consider the Pandas DataFrame df below. Change the data type of the column height to integer.
+
+      name  height
+0  Heather   160.3
+1    Chris   175.1
+2      Eva   165.4
+Complete the code to return the output
+print(df.height.astype('int64'))
+
+
+Question 12
+
+Due to an error in data entry, some rows in the store_info table are duplicated. Clean the data so that there are no longer any duplicated rows.
+
+   store_id      type  sales
+0       143      food   1417
+1       143  clothing    111
+2       143  clothing    111
+3       419      food   6745
+4       365      food   6745
+5       365      food   3551
+Select the code to return the output
+store_info_no_duplicates= store_info.drop_duplicates()
+
+print(store_info_no_duplicates)
+
+Question 13
+
+The team at Green Friends have decided to give the Kentiapalm a new nickname. Replace the name Howerd with Kenny in the name column of the plants DataFrame.
+
+--plants
+   name      binomial name        sales price
+0  ALFREDO   Monstera Deliciosa   24.95  
+1  ISABELLA  Calathea Orbifolia   28.95
+2  MARTY     Areca                44.95 
+3  OLLIE     Alocasia Zebrina     29.95
+4  HOWERD    Kentiapalm           49.95
+Complete the code to return the output
+import pandas as pd
+
+
+plants['name'] = plants['name'].str.replace('Howerd', 'Kenny')
+print(plants.head())
+
+Question 14 
+
+import numpy as np
+import pandas as pd
+
+data = pd.Series(['apple','banana','apple', 'banana'])
+print(data.str.replace('apple', 'orange'))
+
+
+Question 15 
+
+The movies.csv file is previewed below. Import the data as a pandas DataFrame. The filename has been set for you in the object file_name.
+
+reviewer,film,score
+a,Casino Royale,10
+b,Casino Royale,2
+c,Casino Royale,5
+a,Despicable Me,4
+b,Despicable Me,9
+Complete the code to return the output
+import pandas as pd
+
+movies = pd.read_csv(file_name)
+
+print(movies.head())
+
+
