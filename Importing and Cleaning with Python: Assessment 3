@@ -127,6 +127,8 @@ x = pd.read_json('data.json')
 print(x)
 
 
+Question 10
+
 Consider the Pandas DataFrames restaurant and location below, respectively. Combine their columns into a single DataFrame.
 
                name   cuisine
@@ -145,7 +147,7 @@ df = pd.concat([restaurant, location], axis = 1)
 print(df)
 
 
-Question 10
+Question 11
 
 The wine data contains information on wines sold in two different stores. Some of the wines are sold in both stores,
 so have been duplicated in the data. Remove the rows where values in all columns are duplicated.
@@ -163,7 +165,7 @@ wine_no_duplicates= wine.drop_duplicates()
 print(wine_no_duplicates)
 
 
-Question 11
+Question 12
 
 The wine data contains information on wines sold in two different stores. Some of the wines are sold in both stores, so have been duplicated in the data. Identify the rows where values in all columns are duplicated.
 
@@ -178,3 +180,63 @@ Complete the code to return the output
 duplicated_rows= wine.duplicated()
 
 print(duplicated_rows)
+
+
+Question 13
+
+Delete the white spaces in the column name in Pandas DataFrame student shown below.
+
+--student
+
+id    name   grade
+1       Amy     90
+2       Bob    100
+3    Jack       80
+4   Martin      95
+5    Helen     100
+Complete the code to return the output
+import pandas as pd
+
+student['name'] = student['name'].str.strip()
+
+print(student.head())
+
+
+Question 14
+
+Consider the dataset contained in data.txt below. Load the file as a single data type object using numpy.
+
+    0      1
+0  34  17800
+1  22   2800
+2  33   3500
+3  44   1450
+Complete the code to return the output
+import numpy as np
+
+data = np.loadtxt("data.txt", delimiter="\t", dtype="int")
+
+print(data)
+
+
+Question 15
+
+A friend sent you an unprocessed .csv file containing Data Science skills data that was scraped from a job listing website.
+
+Convert the text in the roles column of the jobs DataFrame to lower case.
+
+>>> jobs.head()                                              
+                                              skills                                              roles
+0  Business Intelligence\nArtificial Intelligence...  Immediate opening For Data Scientist/Data Analyst
+1  IT Skills\nJava\nPython\nTesting\nCloud\nBig D...         Associate NLP & Text Mining Data Scientist
+2  Pytorch\nTensorflow\nCnn\nRnn\nNLP\nSpacy\nMac...           Trainer - Data Scientist/ AIML Engineer:
+3  IT Skills\nJava\nPython\nTesting\nData Science...                        Data Scientist/Data Analyst
+4  NLP\nAlgorithms\nBusiness Analytics\nData Scie...              Data Scientist - Machine Learning/NLP
+Complete the code to return the output
+import pandas as pd
+
+jobs['roles'] = jobs['roles'].str.lower()
+print(jobs['roles'].head())
+
+
+
