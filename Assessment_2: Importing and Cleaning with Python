@@ -1,0 +1,241 @@
+  Question 1 
+  
+  id  math  physics
+0  101.0  90.0     88.0
+1  102.0   NaN     89.0
+2    NaN   NaN      NaN
+Complete the code to return the output
+print(score.dropna(how = 'all'))
+
+
+Question 2
+
+Consider the Pandas DataFrame restaurant below. Compute the average price and rating for each category of restaurant.
+
+    id   cuisine  price  rating
+0  121   Chinese      2     4.0
+1  122  American      3     4.5
+2  123  American      2     3.5
+3  124   Chinese      1     4.5
+4  125   Mexican      1     4.0
+Complete the code to return the output
+import pandas as pd
+import numpy as np
+
+df = pd.pivot_table(
+	restaurant,
+    values = ['price', 'rating'],
+    index = 'cuisine',
+    aggfunc = np.mean
+)
+
+print(df)
+
+
+Question 3
+
+Consider the dataset contained in data.txt below. Load the file using the Python context manager.
+
+   one    two
+0    1  17800
+1    2   2800
+2    3   3500
+3    4   1450
+Complete the code to return the output
+
+with open("data.txt", mode="r") as file:
+    print(file.read())
+
+
+Question 4
+
+Load the MATLAB file file.mat as a dictionary.
+Complete the code to return the output
+import scipy.io
+import numpy as np
+
+
+mat = scipy.io.loadmat('file.mat')
+print(type(mat))
+
+
+Question 5
+
+You are going to analyze the food data, previewed below, but to make further analysis easier you first want to change the index to the item column.
+
+            item  energy  protein  carbohydrate
+0        waffles     200     4.29         35.71
+1          tacos     180    10.94         23.44
+2        lasagne     188    11.76         10.59
+3      croissant     343     5.71         58.57
+Complete the code to return the output
+food = food.set_index('item')
+
+print(food)
+
+
+Question 6
+
+Import the JSON file data.json as a Pandas DataFrame.
+Complete the code to return the output
+import json
+import pandas as pd
+
+x = pd.read_json('data.json')
+print(x)
+
+
+Question 7
+
+Consider the Pandas DataFrame score below. Drop the rows where any of the row values are NaN.
+
+      id  math  physics
+0  101.0  90.0     88.0
+1  102.0   NaN     89.0
+2    NaN   NaN      NaN
+Complete the code to return the output
+print(score.dropna())
+
+
+Question 8
+
+Consider the Pandas DataFrame data below. Identify the missing values.
+
+        bmi      country   year
+0  21.48678  Afghanistan  Y1980
+1       NaN      Albania  Y1980
+2  21.46552  Afghanistan  Y1981
+3       NaN      Albania  Y1981
+Complete the code to return the output
+import numpy as np
+import pandas as pd
+
+print(data.isna())
+
+
+Question 9
+
+Drop the missing values from the Pandas DataFrame game shown below.
+
+game 
+
+id    name         team
+1     Amy        Bosses
+2     Bob           NaN
+3     Chuck         NaN
+4     Richard Champions
+5     Ethel         NaN
+6     Fred    Champions
+7     Gilly         NaN
+8     Hank    Champions
+Complete the code to return the output
+print(game.dropna())
+
+
+Question 10
+
+Import the data.csv file, shown below, as a Pandas DataFrame.
+
+id    name         team
+1      Ann       Bosses
+2      Bob    Champions
+3     Fred       Bosses
+4    Chuck    Champions
+Complete the code to return the output
+import pandas as pd
+
+file = "data.csv"
+df = pd.read_csv(file)
+
+print(df)
+
+
+Question 11
+
+Consider the dataset contained in data.txt below. Load the file as a single data type object using numpy.
+
+    0      1
+0  34  17800
+1  22   2800
+2  33   3500
+3  44   1450
+Complete the code to return the output
+import numpy as np
+
+data = np.loadtxt("data.txt", delimiter="\t", dtype="int")
+
+print(data)
+
+
+Question 12
+
+Consider the contents of the file data.txt below. Load the file using built-in Python methods.
+
+   one    two
+0    1  17800
+1    2   2800
+2    3   3500
+3    4   1450
+Complete the code to return the output
+data = "data.txt"
+
+file = open(data, mode="r")
+text = file.read()
+file.close()
+
+print(text)
+
+
+Question 13
+
+You have HTML data stored as a string in the variable html_doc. Using bs4 make an instance of BeautifulSoup with html_doc as an argument. 
+Then, print the resulting document as a nested data structure.
+Complete the code to return the output
+
+from bs4 import BeautifulSoup
+
+s = BeautifulSoup(html_doc)
+ps = s.prettify()
+fs = print(ps)
+fs
+
+
+Questions 14
+
+Fill in the missing data with the fill value 0 in the Pandas DataFrame game shown below.
+
+game 
+
+id    name         team
+1     Amy        Bosses
+2     Bob           NaN
+3     Chuck         NaN
+4     Richard Champions
+5     Ethel         NaN
+6     Fred    Champions
+7     Gilly         NaN
+8     Hank    Champions
+Complete the code to return the output
+import numpy as np
+import pandas as pd
+
+print(game.fillna(0))
+
+
+Qustion 15
+
+Bob got his grades added twice to the student record. Remove Bob's duplicate grade from the student Pandas DataFrame shown below.
+
+--student
+     name    grade
+      Amy       90
+      Bob      100
+    Chuck       80
+      Bob      100
+      Ann       85
+Complete the code to return the output
+student_no_duplicates= student.drop_duplicates()
+
+print(student_no_duplicates)
+
+
