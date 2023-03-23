@@ -1,0 +1,255 @@
+Question 1 
+
+Using the appropriate pandas function, convert the list l to a datetime object
+Complete the code to return the output
+import pandas as pd
+
+l = ['2012-01-01 091234','2012-01-01 091234']
+print(pd.to_datetime(l))
+Expected Output
+DatetimeIndex(['2012-01-01 09:12:34', '2012-01-01 09:12:34'], dtype='datetime64[ns]', freq=None)
+
+Question 2
+
+Reset the index of the game Pandas DataFrame shown below.
+
+       id       team
+name                
+Amy     1     Bosses
+Bob     2  Champions
+Chuck   3  Champions
+Fred    4     Bosses
+Ann     5     Bosses
+Complete the code to return the output
+game = game.reset_index()
+
+print(game)
+
+
+Question 3
+
+Some mistakes were made during data entry of plant inventory for Green Friend Nursery. There are leading spaces in the water_requirement column of the plants DataFrame. Remove the leading spaces from all entries in the column.
+
+--plants
+   name      binomial name        water_requirement
+0  ALFREDO   Monstera Deliciosa   moderate  
+1  ISABELLA  Calathea Orbifolia     moderate
+2  MARTY     Areca                  high 
+3  OLLIE     Alocasia Zebrina     high
+4  HOWERD    Kentiapalm           moderate
+Complete the code to return the output
+import pandas as pd
+
+plants['water_requirement'] = plants['water_requirement'].str.strip()
+print(plants.head())
+
+
+Question 4
+
+Load the MATLAB file file.mat as a dictionary.
+Complete the code to return the output
+import scipy.io
+import numpy as np
+
+mat = scipy.io.loadmat('file.mat')
+print(type(mat))
+Expected Output
+<class 'dict'>
+
+
+Question 5
+
+Consider the Pandas Series s below:
+
+1       red
+2      blue
+3       red
+dtype: object
+
+
+Complete the code to return the output
+import pandas as pd
+
+print(s.str.contains("d"))
+Expected Output
+1     True
+2    False
+3     True
+dtype: bool
+
+
+Question 6
+
+he user_xp DataFrame contains the user_id, xp and status of users of an online games platform. The status variable is should be a categorical variable with 5 levels (bronze, silver, gold, platinum, diamond) but the .info() method of the user_xp shows that the status column as an object type. Convert the status column to a categorical variable.
+
+>>> user_xp.info()
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 200 entries, 0 to 199
+Data columns (total 3 columns):
+user_id    200 non-null int64
+xp         200 non-null int64
+status     200 non-null object
+dtypes: int64(2), object(1)
+memory usage: 4.8+ KB
+Complete the code to return the output
+
+user_xp['status'] = user_xp['status'].astype('category')
+
+print(user_xp.info())
+
+
+Question 7 
+
+Consider the Pandas DataFrame contact below. Separate the column email by the @ character.
+
+               email
+0  mary@datacamp.com
+1   susan@google.com
+2    helen@gmail.com
+Complete the code to return the output
+print(contact.email.import('@', expand = True))
+print(contact.email.str.split('@', expand = True))
+Expected Output
+       0             1
+0   mary  datacamp.com
+1  susan    google.com
+2  helen     gmail.com
+
+
+Question 8
+
+The wine data contains information on wines sold in two different stores. Some of the wines are sold in both stores, so have been duplicated in the data. Identify the rows where values in all columns are duplicated.
+
+          style   type    country  price  rating
+0        malbec    red  argentina  19.04     4.2
+1        malbec    red  argentina  18.49     4.2
+2     alvarinho  white   portugal  18.99     4.2
+3      riesling  white    germany  16.95     4.0
+4  valpolicella    red      italy  17.99     4.2
+5  valpolicella    red      italy  17.99     4.2
+Complete the code to return the output
+duplicated_rows= wine.isna()
+duplicated_rows= wine.duplicated()
+
+print(duplicated_rows)
+Expected Output
+0    False
+1    False
+2    False
+3    False
+4    False
+5     True
+dtype: bool
+
+
+Question 9 
+
+Consider the Pandas Series s below:
+
+1       red
+2      blue
+3       red
+dtype: object
+Complete the code to return the output
+import pandas as pd
+
+
+print(s.str.startswith('re'))
+Expected Output
+1     True
+2    False
+3     True
+dtype: bool
+
+
+Questions 10
+
+Consider the dataset contained in data.txt below. Load the file as a single data type object using numpy.
+
+    0      1
+0  34  17800
+1  22   2800
+2  33   3500
+3  44   1450
+Complete the code to return the output
+import numpy as np
+
+data = np.loadtxt("data.txt", delimiter="\t", dtype="int")
+
+print(data)
+
+
+Questions 11
+
+You have been giving a dataset by a colleague who prefers to work with MATLAB. Being a Pythonista, you would like to import the data as a Python dictionary.
+Complete the code to return the output
+import scipy.io
+import numpy as np
+
+file_name = 'cars_train_annos.mat'
+
+annotations = scipy.io.loadmat(file_name)
+print(annotations["__header__"])
+
+
+Question 12
+
+Consider the Pandas DataFrame score below. Drop the rows where all values are NaN.
+
+      id  math  physics
+0  101.0  90.0     88.0
+1  102.0   NaN     89.0
+2    NaN   NaN      NaN
+Complete the code to return the output
+print(score.dropna(how = 'all'))
+
+
+Question 13
+
+A friend sent you an unprocessed .csv file containing Data Science skills data that was scraped from a job listing website.
+
+You're unsure of the structure of the data so import only the first 4 rows to help you decide how to proceed.
+
+Complete the code to return the output
+import pandas as pd
+
+job_listings = pd.read_csv(file_name, index_col=0, nrows= 4)
+
+print(job_listings.head().transpose())
+
+
+Question 14
+
+Consider the Pandas DataFrames restaurant and location below, respectively. Combine their columns into a single DataFrame.
+
+               name   cuisine
+0           Nom Wah   Chinese
+1  midnight express  American
+2        Enzo Pizza   Italian
+     borough
+0  Manhattan
+1  Manhattan
+2   Brooklyn
+Complete the code to return the output
+import pandas as pd
+
+df = pd.concat([restaurant, location], axis = 1)
+
+print(df)
+
+
+Question 15
+
+The food.xlsx Excel file contains multiple sheets. Read the salad sheet into a pandas DataFrame.
+Complete the code to return the output
+import pandas as pd
+
+filename = "food.xlsx"
+
+df = pd.read_excel(filename, "salad")
+print(df)
+
+
+
+
