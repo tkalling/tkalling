@@ -1,0 +1,267 @@
+Question 1
+
+Consider the Pandas Series s below:
+
+1       red
+2      blue
+3       red
+dtype: object
+Complete the code to return the output
+import pandas as pd
+
+print(s.str.startswith('re'))
+Expected Output
+1     True
+2    False
+3     True
+dtype: bool
+
+Question 2
+
+Consider the Pandas DataFrame df below. Convert the columns math and chemistry from wide to long format.
+
+    id  math  chemistry
+0  012    85         88
+1  013    88         86
+2  014    90         91
+3  015    85         90
+Complete the code to return the output
+import pandas as pd
+
+df = pd.melt(df, id_vars = 'id', value_vars = ['math', 'chemistry'])
+
+print(df)
+
+
+Question 3
+
+he user_xp DataFrame contains the user_id, xp and status of users of an online games platform. 
+The status variable is should be a categorical variable with 5 levels (bronze, silver, gold, platinum, diamond) but the .info()
+method of the user_xp shows that the status column as an object type. Convert the status column to a categorical variable.
+
+>>> user_xp.info()
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 200 entries, 0 to 199
+Data columns (total 3 columns):
+user_id    200 non-null int64
+xp         200 non-null int64
+status     200 non-null object
+dtypes: int64(2), object(1)
+memory usage: 4.8+ KB
+Complete the code to return the output
+
+user_xp['status'] = user_xp['status'].astype('category')
+
+print(user_xp.info())
+
+
+Question 4
+
+Consider the dataset contained in data.txt below. Load the file as a single data type object using numpy.
+
+    0      1
+0  34  17800
+1  22   2800
+2  33   3500
+3  44   1450
+Complete the code to return the output
+import numpy as np
+
+data = np.loadtxt("data.txt", delimiter="\t", dtype="int")
+
+print(data)
+
+
+Question 4
+
+Consider the dataset contained in data.txt below. Load the file as a single data type object using numpy.
+
+    0      1
+0  34  17800
+1  22   2800
+2  33   3500
+3  44   1450
+Complete the code to return the output
+import numpy as np
+
+data = np.loadtxt("data.txt", delimiter="\t", dtype="int")
+
+print(data)
+
+
+Question 5
+
+Consider the Pandas DataFrame measure below. Keep the column Name and convert the column Height to rows.
+
+    Name  Height  Weight
+0  Nancy      65     120
+1  Henry      71     165
+2   Alan      68     160
+3    Bob      73     170
+Complete the code to return the output
+import pandas as pd
+
+df = pd.melt(measure, id_vars = 'Name', value_vars = 'Height')
+
+print(df)
+
+
+Question 6
+
+Acacia is a large consulting firm and potentially a very large client for your company. 
+Some Acacia employees already use your company's platform. 
+Help determine who these users are by filtering the users DataFrame for users that have an '@acacia.com'email address.
+
+--users
+   name     email
+0  Miranda 'miranda@acacia.com'
+1  Tony    'tony@gmail.com'
+2  Graham  'graham@gmail.com'
+Complete the code to return the output
+import pandas as pd
+
+print(users[users['email'].str.contains('acacia')])
+
+
+
+Question 7 
+
+Delete the white spaces in the column name in Pandas DataFrame student shown below.
+
+--student
+
+id    name   grade
+1       Amy     90
+2       Bob    100
+3    Jack       80
+4   Martin      95
+5    Helen     100
+Complete the code to return the output
+import pandas as pd
+
+student['name'] = student['name'].str.strip()
+
+print(student.head())
+
+
+Question 8
+
+An extract from the train.xlsx Excel file is shown below. While importing the Excel file, override the column names to id, seq, from, and to.
+
+   train_id  stop_sequence         from           to
+0      1107              1      Hoboken      Hoboken
+1      1107              2      Hoboken  Secaucus L1
+2      1107              3  Secaucus L1    Kingsland
+Complete the code to return the output
+import pandas as pd
+
+filename = "train.xlsx"
+
+df = pd.read_excel(filename, names=['id', 'seq', 'from', 'to'])
+print(df.head())
+
+
+Question 9 
+
+Load the MATLAB file file.mat as a dictionary.
+Complete the code to return the output
+import scipy.io
+import numpy as np
+
+mat = scipy.io.loadmat('file.mat')
+print(type(mat))
+Expected Output
+<class 'dict'>
+
+
+Questions 10
+
+Complete the code to return the output
+import numpy as np
+import pandas as pd
+
+data = pd.Series(["1 jan 2018", "2019-01-01", "3 jan 2019"])
+print(data.str.contains("2019"))
+Expected Output
+0    False
+1     True
+2     True
+dtype: bool
+
+
+Questions 11
+
+A friend sent you an unprocessed .csv file containing Data Science skills data that was scraped from a job listing website.
+
+You're unsure of the structure of the data so import only the first 4 rows to help you decide how to proceed.
+
+Complete the code to return the output
+import pandas as pd
+
+job_listings = pd.read_csv(file_name, index_col=0, nrows=4)
+
+print(job_listings.head().transpose())
+
+
+Question 12
+
+The file LIGO_data.hdf5 is in the current directory. Load it as an HDF5 object using the h5py package.
+Complete the code to return the output
+import numpy as np
+import h5py
+
+hf = h5py.file('LIGO_data.hdf5', 'r')
+hf = h5py.File('LIGO_data.hdf5', 'r')
+print(hf)
+
+
+Question 13
+
+Consider the Pandas DataFrames restaurant and location below, respectively. Combine their columns into a single DataFrame.
+
+               name   cuisine
+0           Nom Wah   Chinese
+1  midnight express  American
+2        Enzo Pizza   Italian
+     borough
+0  Manhattan
+1  Manhattan
+2   Brooklyn
+Complete the code to return the output
+import pandas as pd
+
+df = pd.concat([restaurant, location], axis = 1)
+
+print(df)
+
+
+Question 14
+
+Determine the data types of all the columns contained in the books DataFrame.
+
+    Title                 Author         Publication Date  Average Rating
+0   1984                  George Orwell  1949                        4.18
+1   To Kill a Mockingbird Harper Lee     1960-63                     4.28
+2   The Book Thief        Markus Zusak   2005.                       4.37
+Complete the code to return the output
+print(books.dtypes)
+
+print(df)
+
+
+Question 15
+
+Bob got his grades added twice to the student record. Remove Bob's duplicate grade from the student Pandas DataFrame shown below.
+
+--student
+     name    grade
+      Amy       90
+      Bob      100
+    Chuck       80
+      Bob      100
+      Ann       85
+Complete the code to return the output
+student_no_duplicates= student.drop_duplicates()
+
+print(student_no_duplicates)
