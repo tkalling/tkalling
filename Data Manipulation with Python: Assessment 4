@@ -1,0 +1,230 @@
+Question 1
+
+Complete the code to return the output
+import pandas as pd
+
+print(pd.DataFrame({
+    "x": [1], 
+    "y": [3],
+}))
+Expected Output
+   x  y
+0  1  3
+
+
+Question 2
+
+Calculate the variance and standard deviation of the array x.
+Complete the code to return the output
+x = np.array([2.2, 0.9, 4.4, 6.7, 2.8, 3.2, 1.1, 3.5])
+x_var = np.var(x)
+x_stdev = np.std(x)
+print('Variance: {:4.2f}'.format(x_var))
+print('Std Deviation: {:4.2f}'.format(x_stdev))
+
+
+Question 3
+
+The chess DataFrame contains information about the top female chess players around the world. 
+Determine what fields exist in the dataset by printing the names of the columns.
+Complete the code to return the output
+print(chess.columns)
+
+Expected Output
+Index(['Fide id', 'Name', 'Federation', 'Gender', 'Year_of_birth', 'Title', 'Standard_Rating', 'Rapid_rating', 'Blitz_rating', 'Inactive_flag'], dtype='object')
+
+
+Question 4
+
+Calculate the inter-quartile range of the age of 100 customers who have recently bought products from your website. age is a numpy array.
+Complete the code to return the output
+from scipy import stats
+
+iqr_age = stats.iqr(age)
+
+print(iqr_age)
+
+
+Question 5
+
+You are investigating the impact of age on the valuation of cars to better understand prices that should be offered to customers for second hand cars.
+You want to visualize both the individual distributions as well as the relationship between the two variables on a single graphic.
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.jointplot(x = 'age', y = 'value', data = valuation)
+
+plt.show()
+
+
+Question 6
+
+Create a swarm plot of value as a function of measurement. Use the color to indicate the species. The data is contained in the iris DataFrame.
+
+--iris
+      species    measurement   value
+0     setosa     sepal_length  5.1
+1     setosa     sepal_length  4.9
+...
+598   virginica  petal_width   4.6
+599   virginica  petal_width   5.0
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+ax = sns.swarmplot(x="measurement", 
+                   y="value", 
+                   hue="species", 
+                   data=iris)
+
+plt.show()
+
+
+Question 7
+
+Visualize changes in the variable order over time (day) stored in the Pandas DataFrame df.
+
+>>df
+    day  order
+0     0     10
+1     1     11
+2     2     14
+3     3      7
+4     4      5
+5     5     16
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.lineplot(x = 'day', y = 'order', data = df)
+
+plt.xticks(rotation = 45)
+plt.show()
+
+
+Question 8 
+
+You work for a second hand car sales company, and they want to know the relationship between the age and the value so that they
+can estimate the best price to sell their cars at. Create a scatter plot to show the relationship, identifying the emissions level by
+changing the color of each point. The valuation data is previewed below.
+
+    age emissions   mpg  value
+0    15       low  23.1   3047
+1     8       low  10.4  15428
+2     4      high  15.4  24973
+3    10      high  31.0   4638
+4     1       low  30.2  19303
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.scatterplot(x = "age", y = "value", hue = "emissions", data = valuation)
+
+plt.show()
+
+
+Question 9
+
+Plot the monthly dam level height contained in the dam_level DataFrame.
+
+--dam_level
+date        level
+2019-01-01    48.6
+2019-02-01    46.7
+2019-03-01    44.8
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.lineplot(   x='date',    y='level',    data=dam_level)
+
+plt.xticks(rotation=45)
+plt.show()
+
+
+Question 10
+
+The chess dataset contains information about the top female chess players around the world. You have viewed the first rows of the dataset but you suspect some of the subsequent rows might very different. Preview a random sample of 5 rows. Ensure that you have reproducible results by using a random_state=42.
+Complete the code to return the output
+
+print(chess.sample(n=5, random_state=42))
+
+
+Question 11
+
+Subset the DataFrame df to select the alignment and character columns.
+
+  alignment     character height    location
+0      Good        Batman   1.88      Gotham
+1      Good  Wonder Woman   1.78  Themyscira
+2      Evil    Lex Luthor   1.88  Metropolis
+3      Evil     The Joker   1.85      Gotham
+Complete the code to return the output
+import pandas as pd
+
+print(df[['alignment', 'character']])
+
+
+Question 12
+
+Two of the columns in the heart DataFrame have very long names. Rename the columns using the provided dictionary.
+Complete the code to return the output
+import pandas as pd
+
+column_names = {
+	'slope_of_peak_exercise_st_segment': 'slope',
+	'fasting_blood_sugar_gt_120_mg_per_dl': 'fbs' 
+}
+
+heart_clean = heart.rename(columns=column_names)
+print(heart_clean.head())
+
+
+Question 13
+
+As part of a salary review, HR has requested that you gather all information for employees who earn a salary_usd of 5000.
+
+Print the corresponding records from the employee pandas DataFrame shown below.
+
+     first_name    gender    salary_usd  
+0         Linda    female          3000  
+1         Steve      male          5000 
+2         Henry      male         12000
+3          Sara    female          5000  
+Complete the code to return the output
+print(employee[employee['salary_usd']==5000])
+
+
+Question 14 
+
+Consider df below.
+
+   x   y
+0  4  16
+1  9  25
+Complete the code to return the output
+print(df.transform(np.sqrt))
+Expected Output
+     x    y
+0  2.0  4.0
+1  3.0  5.0
+
+
+Question 15
+
+The wine DataFrame provides information on wines stocked by an online retailer, but some information is missing. Print the total number of missing values in each column of the data.
+
+                     type    country  price  rating
+style                                               
+alvarinho           white   portugal  18.99     4.2
+blanc de blanc  sparkling     france    NaN     3.8
+cabernet              red  argentina  14.90     4.0
+gavi                white      italy  13.56     NaN
+malbec                red  argentina  19.04     4.2
+Complete the code to return the output
+
+missing_total_by_column = wine.isna().sum()
+
+print(missing_total_by_column)
+
