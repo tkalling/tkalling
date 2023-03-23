@@ -1,0 +1,217 @@
+Question 1
+
+Subset the DataFrame df to select the alignment and character columns.
+
+  alignment     character height    location
+0      Good        Batman   1.88      Gotham
+1      Good  Wonder Woman   1.78  Themyscira
+2      Evil    Lex Luthor   1.88  Metropolis
+3      Evil     The Joker   1.85      Gotham
+Complete the code to return the output
+import pandas as pd
+
+print(df[['alignment', 'character']])
+
+
+Question 2
+
+Consider the Pandas DataFrame df below.
+
+     gh owner language      repo  stars
+0  pandas-dev   python    pandas  17800
+1   tidyverse        R     dplyr   2800
+2   tidyverse        R   ggplot2   3500
+3      has2k1   python  plotnine   1450
+Complete the code to return the output
+import pandas as pd
+
+print(df[['repo','gh owner' ]])
+
+
+Question 3
+
+The chess DataFrame contains information about the top female chess players around the world. A preview of the DataFrame is shown. Set the index of the DataFrame to be the column containing the Fide id of the players.
+
+    Fide id Name.               Federation Year_of_birth     Title
+0   700070  Polgar, Judit              HUN          1976        GM
+1   8602980 Hou, Yifan                 CHN          1994        GM
+2   5008123 Koneru, Humpy              IND          1987        GM
+3   4147103 Goryachkina, Aleksandra    RUS          1998        GM
+4   700088  Polgar, Susan              HUN          1969        GM
+Complete the code to return the output
+chess = chess.set_index('Fide id')
+
+print(chess.head())
+
+
+Question 4
+
+You are investigating the impact of age on the valuation of cars to better understand prices that should be offered to customers for second hand cars. You want to visualize both the individual distributions as well as the relationship between the two variables on a single graphic.
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.jointplot(x = 'age', y = 'value', data = valuation)
+
+plt.show()
+
+
+Question 5
+
+Calculate the inter-quartile Range for the pH numpy array.
+Complete the code to return the output
+from scipy import stats
+IQR = stats.iqr(pH)
+print(IQR)
+Expected Output
+0.18999999999999995
+
+
+Question 6
+
+Your manager wants a list of the first names of all of her employees. Help her out by printing the index of the employee DataFrame shown below.
+
+              gender  salary
+first_name                
+Linda         female    3400
+Steve           male    5000
+Henry           male   12400
+Sara          female    7600
+Complete the code to return the output
+
+print(employee.index)
+
+Question 7
+
+
+The steam data represents the average temperature (temp) and the average steam usage (usage) of a steam driven turbine per month. Create a scatterplot of usage vs temp.
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+ax = sns.scatterplot(data=steam, 
+                    x="temp", 
+                    y="usage")
+
+plt.show()
+
+
+Question 8
+
+Consider the Pandas DataFrame df below:
+
+     gh owner language      repo  stars
+0  pandas-dev   python    pandas  17800
+1   tidyverse        R     dplyr   2800
+2   tidyverse        R   ggplot2   3500
+3      has2k1   python  plotnine   1450
+Complete the code to return the output
+import pandas as pd
+
+print(df.stars.transform(lambda x: x / 1000))
+
+
+Question 9
+
+Calculate the inter-quartile range of the age of 100 customers who have recently bought products from your website. age is a numpy array.
+Complete the code to return the output
+from scipy import stats
+
+iqr_age = stats.iqr(age)
+
+print(iqr_age)
+
+
+Question 10
+
+Visualize changes in the variable order over time (day) stored in the Pandas DataFrame df.
+
+>>df
+    day  order
+0     0     10
+1     1     11
+2     2     14
+3     3      7
+4     4      5
+5     5     16
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.lineplot(x = 'day', y = 'order', data = df)
+
+plt.xticks(rotation = 45)
+plt.show()
+
+
+Question 11
+
+Two of the columns in the heart DataFrame have very long names. Rename the columns using the provided dictionary.
+Complete the code to return the output
+import pandas as pd
+
+column_names = {
+	'slope_of_peak_exercise_st_segment': 'slope',
+	'fasting_blood_sugar_gt_120_mg_per_dl': 'fbs' 
+}
+
+heart_clean = heart.rename(columns=column_names)
+print(heart_clean.head())
+
+
+Question 12
+
+Create a scatterplot of mpg as a function of weight.
+
+Use size to indicate the relative horsepower of vehicles.
+The data is contained in the cars DataFrame.
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.scatterplot(x='weight', y='mpg', size='horsepower', data= cars)
+
+plt.show()
+
+
+Question 13
+
+Subset the Pandas DataFrame df to return all rows with a weight greater than 175.
+
+     species   name  weight
+0       lion  Sally     121
+1      tiger  Henry     228
+2       lion   Tony     177
+3      tiger   Lucy     165
+Complete the code to return the output
+print(df[df['weight']>175])
+
+
+Question 14
+
+Following a trial of a new treatment, you wish to create a plot of the change over the time of the trial (week) of the patient response (resp). The patient data is shown below.
+
+   week  resp
+0     0    91
+1     1    89
+2     2    82
+3     3    75
+4     4    59
+5     5    53
+Complete the code to return the output
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.lineplot(x = 'week', y = 'resp', data = patient)
+
+plt.show()
+
+
+Question 15
+
+Print the food DataFrame, sorted in descending order of energy per 100g.
+Complete the code to return the output
+
+print(food.sort_values('energy', ascending = False))
+
