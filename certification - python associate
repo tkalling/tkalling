@@ -1,0 +1,107 @@
+
+import pandas as pd
+food_claims = pd.read_csv('food_claims_2212.csv')
+food_claims.head()
+
+food_claims.head()
+food_claims['cause'] = food_claims['cause'].replace('VEGETABLES', 'vegetable')
+food_claims['cause'] = food_claims['cause'].replace(' Meat', 'meat')
+unique_causes = food_claims['cause'].unique()
+
+# Print the unique causes
+print(unique_causes)
+
+
+food_claims.isnull().sum()
+
+
+food_claims_amount_paid = food_claims['amount_paid'].median()
+
+food_claims_amount_paid
+
+
+food_claims['amount_paid'] =food_claims['amount_paid'].fillna(20105.7)
+food_claims['linked_cases'] = food_claims['linked_cases'].fillna('FALSE')
+
+print(food_claims.isnull().sum())
+
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+food_claims['location'].value_counts().plot(kind='bar')
+plt.xlabel='location'
+plt.ylabel='Number of clamis'
+plt.title('Number of claims in each location')
+plt.show()
+
+
+# Calculate the most common cause in each location
+most_common_cause = food_claims.groupby('location')['cause'].agg(lambda x: x.mode().iloc[0])
+
+# Define the number of rows and columns for the subplot grid
+nrows = 1  # Number of rows (you can adjust this as needed)
+ncols = len(most_common_cause)  # Number of columns based on the number of locations
+
+# Create subplots with multiple columns
+fig, axs = plt.subplots(nrows=nrows, ncols=ncols, figsize=(15, 5), sharey=True)
+
+# different colors 
+colors = ['skyblue', 'lightcoral', 'lightgreen', 'lightsalmon']
+
+# Flatten the axs array if there is more than one row
+if nrows > 1:
+    axs = axs.flatten()
+
+# Plot a bar chart for each location
+for i, (location, cause) in enumerate(most_common_cause.items()):
+    location_df = food_claims[food_claims['location'] == location]
+    cause_counts = location_df['cause'].value_counts()
+    
+    axs[i].bar(cause_counts.index, cause_counts.values, color=colors)
+    axs[i].set_title(f'Most Common Cause in {location}: {cause}')
+    axs[i].set_xlabel('Cause')
+    axs[i].set_ylabel('Frequency')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plot
+plt.show()
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.figure(figsize=(10, 6))
+sns.histplot(data=food_claims, x='time_to_close', bins=10, kde=True, color='skyblue')
+plt.title('Distribution of Time to Close for All Claims')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+
+
+
+  q1 = food_claims.groupby('location')['time_to_close'].quantile(0.25)
+q3 = food_claims.groupby('location')['time_to_close'].quantile(0.75)
+iqr = q3 - q1
+
+# Define a function to identify and remove outliers
+def remove_outliers(group):
+    location_name = group.name
+    lower_bound = q1[location_name] - 1.5 * iqr[location_name]
+    upper_bound = q3[location_name] + 1.5 * iqr[location_name]
+    return group[(group['time_to_close'] >= lower_bound) & (group['time_to_close'] <= upper_bound)]
+
+# Apply the remove_outliers function to remove outliers
+food_claims_cleaned = food_claims.groupby('location').apply(remove_outliers).reset_index(drop=True)
+
+# Show the cleaned boxplot without outliers
+sns.boxplot(data=food_claims_cleaned, x='location', y='time_to_close', palette='Set2')
+plt.title('Boxplot of Time to Close (Outliers Removed) for Different Locations')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+plt.show()
+
+
+
+  
+
